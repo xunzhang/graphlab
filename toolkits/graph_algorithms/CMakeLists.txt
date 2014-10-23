@@ -9,4 +9,4 @@ install(TARGETS
         prestige
         betweeness
         closeness
-        RUNTIME DESTINATION bin)
+        RUNTIME DESTINATION bin/graphlab)

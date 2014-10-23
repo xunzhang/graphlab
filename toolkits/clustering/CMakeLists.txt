@@ -10,4 +10,4 @@ install(TARGETS
         generate_synthetic 
         spectral_clustering 
         graph_laplacian_for_sc
-        RUNTIME DESTINATION bin)
+        RUNTIME DESTINATION bin/graphlab)

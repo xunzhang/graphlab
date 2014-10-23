@@ -38,4 +38,4 @@ install(TARGETS
         eigen_vector_normalization
         graph_laplacian
         partitioning
-        RUNTIME DESTINATION bin)
+        RUNTIME DESTINATION bin/graphlab)

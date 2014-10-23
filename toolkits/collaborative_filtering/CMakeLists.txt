@@ -52,4 +52,4 @@ install(TARGETS
         nmf
         make_synthetic_als_data
         adpredictor
-        RUNTIME DESTINATION bin)
+        RUNTIME DESTINATION bin/graphlab)

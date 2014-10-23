@@ -9,4 +9,4 @@ requires_eigen(jacobi) # build and attach eigen
 
 install(TARGETS
         jacobi
-        RUNTIME DESTINATION bin)
+        RUNTIME DESTINATION bin/graphlab)

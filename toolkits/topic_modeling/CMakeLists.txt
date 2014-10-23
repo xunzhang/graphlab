@@ -9,4 +9,4 @@ install(TARGETS
         lda_sequential_cgs
         cgs_lda
         cgs_lda_mimno_experimental
-        RUNTIME DESTINATION bin)
+        RUNTIME DESTINATION bin/graphlab)
