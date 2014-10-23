@@ -307,30 +307,6 @@ endif()
 #  add_dependencies(${NAME} imagemagick libjpeg)
 # endmacro(requires_imagemagick)
 
-# OpenCV =================================================================
-ExternalProject_Add(opencv
-  PREFIX ${GraphLab_SOURCE_DIR}/deps/opencv
-  URL http://sourceforge.net/projects/opencvlibrary/files/opencv-unix/2.4.9/opencv-2.4.9.zip/download
-  # URL_MD5 010b63a2542c4ec4918c8cb431c00356
-  PATCH_COMMAND patch -N -p0 cmake/OpenCVModule.cmake -i ${GraphLab_SOURCE_DIR}/patches/opencv_apple_rpath.patch || true
-  CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=<INSTALL_DIR>
-  -DBUILD_TESTS=OFF -DBUILD_PERF_TESTS=OFF -DBUILD_PACKAGE=OFF -DBUILD_EXAMPLES=OFF -DOPENCV_BUILD_3RDPARTY_LIBS=ON -DBUILD_SHARED_LIBS=ON -DBUILD_DOCS=OFF -DBUILD_JPEG=ON -DCMAKE_INCLUDE_PATH=${GraphLab_SOURCE_DIR}/deps/local/include -DWITH_CUBLAS=OFF -DWITH_1394=OFF -DWITH_AVFOUNDATION=OFF -DWITH_CUDA=OFF -DWITH_CUFFT=OFF -DWITH_FFMPEG=OFF -DWITH_GSTREAMER=OFF -DWITH_GTK=OFF -DWITH_QUICKTIME=OFF -DWITH_VIDEOINPUT=OFF -DWITH_XIMEA=OFF -DWITH_XINE=OFF -DWITH_V4L=OFF -DWITH_UNICAP=OFF -DWITH_QT=OFF -DWITH_JASPER=NO -DWITH_TIFF=NO -DWITH_OPENCL=OFF -DCMAKE_LIBRARY_PATH=${GraphLab_SOURCE_DIR}/deps/local/lib
-  INSTALL_DIR ${GraphLab_SOURCE_DIR}/deps/local)
-
-# add_dependencies(opencv eigen)
-
-macro(requires_opencv NAME)
-  get_target_property(tmp ${NAME} COMPILE_FLAGS)
-  if (NOT tmp)
-    set(tmp "-I${CMAKE_SOURCE_DIR}/deps/local/include/opencv")
-  else()
-    set(tmp "${tmp} -I${CMAKE_SOURCE_DIR}/deps/local/include/opencv")
-  endif()
-  set_target_properties(${NAME} PROPERTIES COMPILE_FLAGS "${tmp}")
-  target_link_libraries(${NAME} opencv_core opencv_imgproc opencv_calib3d opencv_video opencv_features2d opencv_ml opencv_highgui opencv_objdetect opencv_contrib opencv_legacy opencv_contrib opencv_stitching)
-  add_dependencies(${NAME} opencv)
-endmacro(requires_opencv)
-
 # zlib  =======================================================================
 # We rely on the zlib library to read gzip compressed files
 # (using boost iostreams).

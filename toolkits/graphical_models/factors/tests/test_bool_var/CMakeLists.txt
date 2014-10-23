@@ -1,4 +1,0 @@
-project(GraphLab)
-
-add_graphlab_executable(test_bool_var test_bool_var.cpp)
-add_graphlab_executable(test_cat_bool_joint test_cat_bool_joint.cpp)
