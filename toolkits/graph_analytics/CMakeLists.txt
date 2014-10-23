@@ -23,3 +23,19 @@ add_graphlab_executable(partitioning partitioning.cpp)
 
 add_graphlab_executable(TSC TSC.cpp)
 requires_eigen(TSC)
+
+install(TARGETS
+        undirected_triangle_count
+        directed_triangle_count
+        pagerank
+        kcore
+        format_convert
+        sssp
+        simple_coloring
+        connected_component
+        connected_component_stats
+        approximate_diameter
+        eigen_vector_normalization
+        graph_laplacian
+        partitioning
+        RUNTIME DESTINATION bin)

@@ -7,4 +7,6 @@ project(GraphLab)
 add_graphlab_executable(jacobi jacobi.cpp)
 requires_eigen(jacobi) # build and attach eigen
 
-
+install(TARGETS
+        jacobi
+        RUNTIME DESTINATION bin)

@@ -40,3 +40,16 @@ add_graphlab_executable(adpredictor adpredictor.cpp)
 # 
 # add_graphlab_executable(warp_als_coord warp_als_coord.cpp)
 # requires_eigen(warp_als_coord) # build and attach eigen
+
+install(TARGETS
+        als
+        sparse_als
+        wals
+        sgd
+        biassgd
+        svdpp
+        svd
+        nmf
+        make_synthetic_als_data
+        adpredictor
+        RUNTIME DESTINATION bin)
